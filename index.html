@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en" class="paused loading">
+<head>
+  <title>Shooting At Balls</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div id="container"></div>
+<div id="crosshair">+</div>
+<div id="target">⋀<br><span>0</span></div>
+<!--<div id="horizon"><div class="inner"></div><div></div><div class="inner"></div></div>-->
+<div id="info">
+  <div id="time">Time: 0.00</div>
+  <div id="targetsleft">Targets left: 20</div>
+</div>
+<div id="hud">
+  <div id="thrust">THR:</div>
+  <div id="speed">SPD:</div>
+  <div id="height">ALT:</div>
+</div>
+<div id="report"></div>
+<div id="help">
+  <h1>Shooting At Things on Mars</h1>
+
+  <p>
+    The evil Balls of Doom are threatening Mars!!<br>
+    Luckily, you – Cpt. Awesome – are around to board a BallFighter 2000 (TM) and send them back to Hell.<br>
+    <br>
+    Shoot at those floating balls and destroy all of 'em – as fast as you can.
+  </p>
+
+  <p>
+    <strong>Instructions:</strong><br>
+    Fly around and destroy all balls. There's an indicator on the top showing
+    you the direction and distance to the nearest target – just in case you get lost. On the bottom left you'll
+    find your current thrust, speed and altitude. For controls, scroll down. If you have a gamepad that Chrome
+    recognizes, you should really connect it right now.
+  </p>
+
+  <p>
+    <strong>Hints:</strong><br>
+    - The faster you go, the faster the BallFighter 2000 maneuvers. But if you go too fast, you'll surely crash.<br>
+    - The higher you fly, the slower you'll get. So, for speed, stay low.
+  </p>
+
+  <p>
+    To awesomize gaming experience, enter fullscreen mode:
+    <button
+        onclick="document.documentElement.requestFullscreen();document.documentElement.requestPointerLock();">
+      Activate Fullscreen Awesomeness
+    </button>
+  </p>
+  <h2 id="buttonReady">Ready? Press "P" to play!</h2>
+
+  <h2 id="buttonLoading">Loading...</h2>
+
+  <h1>Controls</h1>
+  <table>
+    <thead>
+    <tr>
+      <td>Action</td>
+      <td>Mouse/Keyboard</td>
+      <td>Gamepad</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>Pause/Resume</td>
+      <td>P</td>
+      <td>–</td>
+    </tr>
+    <tr>
+      <td>Accelerate</td>
+      <td>W</td>
+      <td>Y</td>
+    </tr>
+    <tr>
+      <td>Decelerate</td>
+      <td>S</td>
+      <td>A</td>
+    </tr>
+    <tr>
+      <td>Fire Cannon</td>
+      <td>Left Mouse Button</td>
+      <td>B</td>
+    </tr>
+    <tr>
+      <td>Pitch</td>
+      <td>Mouse Y-Axis</td>
+      <td>Left Stick</td>
+    </tr>
+    <tr>
+      <td>Roll</td>
+      <td>Mouse X-Axis</td>
+      <td>Left Stick</td>
+    </tr>
+    <tr>
+      <td>Yaw Left</td>
+      <td>A</td>
+      <td>Left Shoulder</td>
+    </tr>
+    <tr>
+      <td>Yaw Right</td>
+      <td>D</td>
+      <td>Right Shoulder</td>
+    </tr>
+    </tbody>
+  </table>
+
+  <h1>Credits</h1>
+
+  <p>
+    This experiment uses
+      <a href="https://github.com/mrdoob/three.js/" target="_blank">Three.js</a>,
+      <a href="https://github.com/toji/game-shim" target="_blank">game-shim</a> ,
+      <a href="https://github.com/jrburke/requirejs" target="_blank">requirejs</a> and
+      <a href="https://github.com/jensarps/decoupled-input" target="_blank">decoupled-input</a>
+  </p>
+
+  <p>
+    It is an offspring of the <a href="https://github.com/jensarps/Ascent" target="_blank">Ascent</a> Project, but it also features elements not present
+    in Ascent, such as InfiniteGround, the WebAudio API or PageVisibility API.
+  </p>
+
+  <p>
+    The background music is a song called "WipEout (Soundtrack Prototype for an abandoned fan game)"
+    by "<a href="http://www.myspace.com/flexblur" target="_blank">Flex Blur</a>" and licensed under
+    a <a href="http://creativecommons.org/licenses/by/3.0" target="_blank">CC license</a>.
+  </p>
+
+  <h1>Browser</h1>
+
+  <p>
+    This experiment only works in Chrome.
+  </p>
+
+  <h1>Source</h1>
+
+  <p>
+    This is an OpenSource experiment, and the code is available on <a href="https://github.com/jensarps/shooting-at-balls" target="_blank">GitHub</a> Feel free to fork, clone or do whatever you like
+    with it. If you have any comments or encounter issues, I'd be thrilled if you could open
+    an issue for that!<br><br>
+    Now go ahead, have some fun and shoot at things already!
+  </p>
+
+  <p>
+    Jens Arps – <a href="http://twitter.com/jensarps" target="_blank">@jensarps</a> – <a href="http://jensarps.de/">jensarps.de</a>
+  </p>
+</div>
+
+<script src="lib/three/three.js"></script>
+<script src="lib/three/Stats.js"></script>
+
+<script src="lib/requirejs/require.js"></script>
+<script src="lib/game-shim/game-shim.js"></script>
+
+<script src="src/app.js"></script>
+</body>
+</html>
