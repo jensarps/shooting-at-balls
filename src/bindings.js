@@ -84,7 +84,7 @@ define(function () {
       },
       {
         device: GAMEPAD,
-        inputId: 'button-5', // ?
+        inputId: 'button-6', // left shoulder
         down: true,
         up: true
       }
@@ -99,7 +99,7 @@ define(function () {
       },
       {
         device: GAMEPAD,
-        inputId: 'button-6', // ?
+        inputId: 'button-7', // right shoulder
         down: true,
         up: true
       }
