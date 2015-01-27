@@ -107,7 +107,7 @@ define([
       var source = this.audioContext.createBufferSource(); // creates a sound source
       source.buffer = this.audioBuffer;                    // tell the source which sound to play
       source.connect(this.audioContext.destination);       // connect the source to the context's destination (the speakers)
-      source.noteOn(0);
+      source.start(0);
 
       this.bulletsFired++;
     },

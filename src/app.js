@@ -53,8 +53,8 @@ require([
     if (document.webkitHidden){
       musicTime = audioContext.currentTime;
 
-      musicSource.noteOff(0);
-      shipSource.noteOff(0);
+      musicSource.stop();
+      shipSource.stop();
       isPaused || ( input.togglePause = 1 );
     } else {
       musicSource = audioContext.createBufferSource();
@@ -62,7 +62,7 @@ require([
       musicSource.loop = true;
       musicSource.connect(audioContext.destination);
 
-      musicSource.noteGrainOn(0, musicTime, musicBuffer.duration - musicTime);
+      musicSource.start(0, musicTime, musicBuffer.duration - musicTime);
     }
   }, false);
 
@@ -143,9 +143,9 @@ require([
     hud.textProperty = typeof hud.time.innerText !== 'undefined' ? 'innerText' : 'textContent';
 
     /* Audio */
-    audioContext = new webkitAudioContext();
+    audioContext = new AudioContext();
 
-    shipGainNode = audioContext.createGainNode();
+    shipGainNode = audioContext.createGain();
     shipGainNode.connect(audioContext.destination);
 
     var request = new XMLHttpRequest();
@@ -188,7 +188,7 @@ require([
               musicSource.loop = true;
               musicSource.connect(audioContext.destination);
 
-              musicSource.noteOn(0);
+              musicSource.start(0);
 
               /* Ground */
 
@@ -268,15 +268,15 @@ require([
       document.documentElement.classList[isPaused ? 'add' : 'remove']('paused');
 
       if(isPaused){
-        shipSource.noteOff(0);
-        //musicSource.noteOff(0);
+        shipSource.stop();
+        //musicSource.stop();
         return;
       } else {
         shipSource = audioContext.createBufferSource();
         shipSource.buffer = shipBuffer;
         shipSource.loop = true;
         shipSource.connect(shipGainNode);
-        shipSource.noteOn(0);
+        shipSource.stop();
 
         /*
         musicSource = audioContext.createBufferSource();
@@ -284,7 +284,7 @@ require([
         musicSource.loop = true;
         musicSource.connect(audioContext.destination);
 
-        musicSource.noteOn(0);
+        musicSource.start(0);
         */
       }
     }
@@ -307,7 +307,7 @@ require([
     var heightOverGround = camera.position.y - terrainGenerator.getHeightAt(camera.position.x, camera.position.z);
     if(heightOverGround <= 0){
       isPaused = true;
-      shipSource.noteOff(0);
+      shipSource.stop();
       report('You crashed. Ts, ts, ts.');
       return;
     }
@@ -326,7 +326,7 @@ require([
 
     if(targets.length <= ( targetsTotal - targetsToHit )){
       isPaused = true;
-      shipSource.noteOff(0);
+      shipSource.stop();
       report('OMG, you saved Mars!!', true);
       return;
     }
